@@ -32,9 +32,16 @@ Please cite this work as:
 
 ## Introduction
 
+
+
 ## Ad-Corre Loss
 
+
+
 ## Evaluation and Samples
+The following samples are taken from the paper:
+
+![Samples](https://github.com/aliprf/Ad-Corre/blob/main/paper_graphical_items/samples.jpg?raw=true)
 
 
 ----------------------------------------------------------------------------------------------------------------------------------
