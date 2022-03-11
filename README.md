@@ -1,16 +1,33 @@
 # Ad-Corre
 Ad-Corre: Adaptive Correlation-Based Loss for Facial Expression Recognition in the Wild
 
+	
+  [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ad-corre-adaptive-correlation-based-loss-for/facial-expression-recognition-on-raf-db)](https://paperswithcode.com/sota/facial-expression-recognition-on-raf-db?p=ad-corre-adaptive-correlation-based-loss-for)
+
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ad-corre-adaptive-correlation-based-loss-for/facial-expression-recognition-on-affectnet)](https://paperswithcode.com/sota/facial-expression-recognition-on-affectnet?p=ad-corre-adaptive-correlation-based-loss-for)
+
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ad-corre-adaptive-correlation-based-loss-for/facial-expression-recognition-on-fer2013)](https://paperswithcode.com/sota/facial-expression-recognition-on-fer2013?p=ad-corre-adaptive-correlation-based-loss-for)
 
 
-#### Link to the paper:
+#### Link to the paper (open access):
+https://ieeexplore.ieee.org/document/9727163
 
 #### Link to the paperswithcode.com:
-
+https://paperswithcode.com/paper/ad-corre-adaptive-correlation-based-loss-for
 
 ```
 Please cite this work as:
 
+@ARTICLE{9727163,
+  author={Fard, Ali Pourramezan and Mahoor, Mohammad H.},
+  journal={IEEE Access}, 
+  title={Ad-Corre: Adaptive Correlation-Based Loss for Facial Expression Recognition in the Wild}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/ACCESS.2022.3156598}}
+  
 ```
 
 ## Introduction
@@ -57,6 +74,15 @@ The training implementation is located in train.py class. You can use the follow
 ```
 Please cite this work as:
 
+@ARTICLE{9727163,
+  author={Fard, Ali Pourramezan and Mahoor, Mohammad H.},
+  journal={IEEE Access}, 
+  title={Ad-Corre: Adaptive Correlation-Based Loss for Facial Expression Recognition in the Wild}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/ACCESS.2022.3156598}}
 
 ```
 
