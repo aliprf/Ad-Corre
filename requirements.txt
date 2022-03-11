@@ -1,0 +1,13 @@
+bottleneck
+tensorflow-gpu==2.4
+keras
+numpy
+matplotlib
+opencv-python
+opencv-contrib-python
+scipy
+scikit-learn
+scikit-image
+Pillow
+tqdm
+tensorboard
