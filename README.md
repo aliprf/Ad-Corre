@@ -76,11 +76,6 @@ The information and the code to train the model is provided in train.py .Plaese 
 ### Preparing Data
 Data needs to be normalized and saved in npy format. 
 
-
-```
-
-```
-
 ---------------------------------------------------------------
 
 ```
