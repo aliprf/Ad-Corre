@@ -32,10 +32,7 @@ Please cite this work as:
 
 ## Introduction
 
-
-
-## Ad-Corre Loss
-
+Automated Facial Expression Recognition (FER) in the wild using deep neural networks is still challenging due to intra-class variations and inter-class similarities in facial images. Deep Metric Learning (DML) is among the widely used methods to deal with these issues by improving the discriminative power of the learned embedded features. This paper proposes an Adaptive Correlation (Ad-Corre) Loss to guide the network towards generating embedded feature vectors with high correlation for within-class samples and less correlation for between-class samples. Ad-Corre consists of 3 components called Feature Discriminator, Mean Discriminator, and Embedding Discriminator. We design the Feature Discriminator component to guide the network to create the embedded feature vectors to be highly correlated if they belong to a similar class, and less correlated if they belong to different classes. In addition, the Mean Discriminator component leads the network to make the mean embedded feature vectors of different classes to be less similar to each other.We use Xception network as the backbone of our model, and contrary to previous work, we propose an embedding feature space that contains k feature vectors. Then, the Embedding Discriminator component penalizes the network to generate the embedded feature vectors, which are dissimilar.We trained our model using the combination of our proposed loss functions called Ad-Corre Loss jointly with the cross-entropy loss. We achieved a very promising recognition accuracy on AffectNet, RAF-DB, and FER-2013. Our extensive experiments and ablation study indicate the power of our method to cope well with challenging FER tasks in the wild.
 
 
 ## Evaluation and Samples
@@ -58,19 +55,27 @@ The requirements and the libraries needed to run the code can be installed using
 The pretrained models for Affectnet, RafDB, and Fer2013 are provided in the [Trained_Models](https://github.com/aliprf/Ad-Corre/tree/main/Trained_Models) folder. You can use the following code to predict the facial emotionn of a facial image:
   
 ```
+    tester = TestModels(h5_address='./trained_models/AffectNet_6336.h5')
+    tester.recognize_fer(img_path='./img.jpg')
 
 ```
+plaese see the following [main.py](https://github.com/aliprf/Ad-Corre/tree/main/main.py) file.
 
 
 ## Training Network from scratch
+The information and the code to train the model is provided in train.py .Plaese see the following [main.py](https://github.com/aliprf/Ad-Corre/tree/main/main.py) file:
+
+```
+    '''training part'''
+    trainer = TrainModel(dataset_name=DatasetName.affectnet, ds_type=DatasetType.train_7)
+    trainer.train(arch="xcp", weight_path="./")
+
+```
 
 
 ### Preparing Data
 Data needs to be normalized and saved in npy format. 
 
-
-### Training 
-The training implementation is located in train.py class. You can use the following code to start the training:
 
 ```
 
