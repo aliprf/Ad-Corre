@@ -3,11 +3,11 @@ Ad-Corre: Adaptive Correlation-Based Loss for Facial Expression Recognition in t
 
 	
   [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ad-corre-adaptive-correlation-based-loss-for/facial-expression-recognition-on-raf-db)](https://paperswithcode.com/sota/facial-expression-recognition-on-raf-db?p=ad-corre-adaptive-correlation-based-loss-for)
-
+<!-- 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ad-corre-adaptive-correlation-based-loss-for/facial-expression-recognition-on-affectnet)](https://paperswithcode.com/sota/facial-expression-recognition-on-affectnet?p=ad-corre-adaptive-correlation-based-loss-for)
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ad-corre-adaptive-correlation-based-loss-for/facial-expression-recognition-on-fer2013)](https://paperswithcode.com/sota/facial-expression-recognition-on-fer2013?p=ad-corre-adaptive-correlation-based-loss-for)
-
+ -->
 
 #### Link to the paper (open access):
 https://ieeexplore.ieee.org/document/9727163
