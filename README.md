@@ -1,4 +1,3 @@
-![Profile views](https://gpvc.arturio.dev/[aliprf])
 
 
 # Ad-Corre
