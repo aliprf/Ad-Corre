@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad-Corre</title>
+    <style>
+         body {
+            font-family: 'Arial', sans-serif;
+            background-color: #EDE6DB;
+            color: #E8F9FD;
+            margin: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #6D2932;
+        }
+
+
+        #main-content {
+             max-width: 1200px;
+            margin: auto;
+            margin-top:20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+        }
+        code {
+            background-color: #E5EFC1; /* Dark Gray Code Background */
+            border: 1px solid #F0F0F0; /* Border Color */
+            border-left: 3px solid #D61C4E; /* Accent Color */
+            color: #513252; /* Light Code Text Color */
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            overflow-x: auto;
+        }
+
+        pre {
+            overflow: auto;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 70%;
+            height: auto;
+        }
+
+        blockquote {
+            background: #2d2d2d; /* Darker Gray for Blockquote */
+            border-left: 10px solid #FC6736;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #860A35;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #A91079; /* Light Text Color for Heading */
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: #5B4B8A; /* Light Text Color for Heading */
+        }
+
+        h3 {
+            font-size: 2em;
+            color: #371B58; /* Light Text Color for Heading */
+        }
+
+        h4 {
+            font-size: 1.8em;
+            color: #436850; /* Light Text Color for Heading */
+        }
+
+        h5 {
+            font-size: 1.5em;
+            color: #436850; /* Light Text Color for Heading */
+        }
+
+        h6 {
+            font-size: 1.2em;
+            color: #436850; /* Light Text Color for Heading */
+        }
+
+        strong {
+            color: #436850;
+        }
+
+        a {
+            color: #40A2E3;
+            transition: color 0.5s;
+        }
+
+        a:hover {
+            color: #f45026;
+        }
+
+  p {
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+  <header>
+        <h1>Ad-Corre: Adaptive Correlation-Based Loss for Facial Expression Recognition in the Wild</h1>
+    </header>
+
+<div id="main-content">
+    <h2>Introduction</h2>
+         
+  <p> Automated Facial Expression Recognition (FER) in the wild using deep neural networks is still challenging due to intra-class variations and inter-class similarities in facial images. Deep Metric Learning (DML) is among the widely used methods to deal with these issues by improving the discriminative power of the learned embedded features. This paper proposes an Adaptive Correlation (Ad-Corre) Loss to guide the network towards generating embedded feature vectors with high correlation for within-class samples and less correlation for between-class samples. Ad-Corre consists of 3 components called Feature Discriminator, Mean Discriminator, and Embedding Discriminator. We design the Feature Discriminator component to guide the network to create the embedded feature vectors to be highly correlated if they belong to a similar class, and less correlated if they belong to different classes. In addition, the Mean Discriminator component leads the network to make the mean embedded feature vectors of different classes to be less similar to each other.We use Xception network as the backbone of our model, and contrary to previous work, we propose an embedding feature space that contains k feature vectors. Then, the Embedding Discriminator component penalizes the network to generate the embedded feature vectors, which are dissimilar.We trained our model using the combination of our proposed loss functions called Ad-Corre Loss jointly with the cross-entropy loss. We achieved a very promising recognition accuracy on AffectNet, RAF-DB, and FER-2013. Our extensive experiments and ablation study indicate the power of our method to cope well with challenging FER tasks in the wild.
+</p>
+
+</div>
+
+
+<div id="main-content">
+    <h2>Architecture</h2>
+         
+  	<p> 
+  	FD component is proposed to improve the discriminative power of the embedded feature vectors that are defined in the embedding feature space. Moreover, monitoring the performance of the network during the training process and updating the proposed Adaptive Attention Map forces the model to perform accurately for dramatically imbalanced datasets.
+	</p>
+
+
+  	<p> 
+  	our proposed architecture contains k different embedded feature vectors being defined in a so-called embedding space. Particularly, we define k the same as the numbers of the facial expressions (which is 7 in this paper), and thus for an input image, the model creates 7 independent embedded feature vectors. Since there is no relation between the embedded feature vectors generated for and input
+image I, there is no guarantee that the different embedded feature vectors represent different features of I. Consequently. we proposed the ED component of Ad-Corre Loss to force the model to generate the embedded feature vectors which are as less correlated to each other as possible. In other words, the ED component is designed to guide the model to generate the embedded feature vectors representing different features from an input image.
+	</p>
+    <img src="https://github.com/aliprf/Ad-Corre/blob/main/paper_graphical_items/fd_ed.jpg?raw=true" alt="Sample All">
+    
+<p> </p>
+	<p> 
+	We propose MD component in the Ad-Corre Loss to make the network generate the embedded feature vectors such that
+the means of different classes are uncorrelated. As Fig shows, MD component is calculated for each of the k embedded feature vectors in the embedding space.
+	</p>
+
+    <img src="https://github.com/aliprf/Ad-Corre/blob/main/paper_graphical_items/md_component.jpg?raw=true" alt="Sample All">
+    
+</div>
+
+
+
+<div id="main-content">
+    <h2>Evaluation and Samples</h2>
+    
+     <p> The following samples are taken from the paper: </p>
+     
+    <img src="https://github.com/aliprf/Ad-Corre/blob/main/paper_graphical_items/samples.jpg?raw=true" alt="Sample All">
+    
+</div>
+
+
+<div id="main-content">
+    <h2>Installing the requirements</h2>
+    
+     <p>  In order to run the code you need to install python >= 3.5.  The requirements and the libraries needed to run the code can be installed using the following command:
+ </p>
+     
+     <pre>
+        <code>
+	pip install -r requirements.txt
+        </code>
+    </pre>
+    
+</div>
+    
+
+
+
+<div id="main-content">
+    <h2>Using the pre-trained models</h2>
+    
+     <p> The pre-trained models for Affectnet, RafDB, and Fer2013 are provided in the <a href="https://github.com/aliprf/Ad-Corre/tree/main/Trained_Models">Trained_Models</a> folder. You can use the following code to predict the facial emotionn of a facial image:
+</p>
+     
+     <pre>
+        <code>
+	tester = TestModels(h5_address='./trained_models/AffectNet_6336.h5')
+	tester.recognize_fer(img_path='./img.jpg')
+        </code>
+    </pre>
+</div>
+
+
+
+<div id="main-content">
+    <h2>Training Network from scratch</h2>
+    
+	<p> The information and the code to train the model is provided in train.py:</p>
+         
+	     <pre>
+		<code>
+	trainer = TrainModel(dataset_name=DatasetName.affectnet, ds_type=DatasetType.train_7)
+	trainer.train(arch="xcp", weight_path="./")
+		</code>
+	    </pre>
+</div>
+
+
+
+
+<div id="main-content">
+   
+
+    <h3>Reference:</h3>
+
+    <pre>
+        <code>@ARTICLE{9727163,
+  author={Fard, Ali Pourramezan and Mahoor, Mohammad H.},
+  journal={IEEE Access}, 
+  title={Ad-Corre: Adaptive Correlation-Based Loss for Facial Expression Recognition in the Wild}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/ACCESS.2022.3156598}}
+        </code>
+    </pre>
+
+ </div>
+
+
+
+   <div id="main-content">
+    <ul>
+       <li><strong>Github:</strong> <a href="https://github.com/aliprf/Ad-Corre/">https://github.com/aliprf/Ad-Corre/</a></li> 
+       <li><strong>Journal Paper:</strong> <a href="https://ieeexplore.ieee.org/document/9727163">https://ieeexplore.ieee.org/document/9727163</a></li>    
+       <li><strong>Paperswithcode.com:</strong> <a href="https://paperswithcode.com/paper/ad-corre-adaptive-correlation-based-loss-for">https://paperswithcode.com/paper/ad-corre-adaptive-correlation-based-loss-for
+</a></li>
+    </ul>
+    
+    </div>
+    
+
+</body>
+
+</html>
